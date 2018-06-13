@@ -1,9 +1,3 @@
-# effective-goggles
-
-This repo name was generated on Github and it is the best repo name ever! <-- personal opinion
-
-## Onward to victory!
-
 This is a demonstration of how to configure a Jenkins server using [Vagrant](https://www.vagrantup.com/) and [Puppet](https://puppet.com/) for provisioning.
 
 Server Specs:
@@ -20,7 +14,7 @@ The server OS could be changed to your personal liking in the Vagrantfile:
 config.vm.box = "puppetlabs/ubuntu-16.04-64-puppet"
 ```
 
-...and the Puppet manifest would need to change to reflect installation options offered in your particular OS of choice but, these things are possible and not difficult.
+... and the Puppet manifest would need to change to reflect installation options offered in your particular OS of choice but, these things are possible.
 
 #### \<\-\- Do not skip reading this! \-\-\>
 
@@ -32,17 +26,17 @@ Second, I am on macOs Sierra Version 10.12.6. Therefore my instructions will be 
 
 Open a terminal and navigate to where you would like a new directory to live. I personally keep all my repos and those I clone in a symlinked directory under my home directory called repos, very funny... I mean practical, I know but, I am not one to tell you how to organize your life/computer(computer life?). Ok, time for some fun stuff!
 
-Clone this repo:
+1. Clone this repo:
 
 ... [or learn about cloning repos](https://help.github.com/articles/cloning-a-repository/)
 
 git clone https://github.com/jlmoody/effective-goggles.git
 
-Change directory:
+2. Change directory:
 
 cd effective-goggles
 
-Do the thing:
+3. Do the thing:
 
 vagrant up
 
@@ -50,7 +44,9 @@ Now sit back, sip your favorite beverage and let the magic happen... oh we're do
 
 Navigate to your new install of [Jenkins](https://jenkins.io/):
 
-http://127.0.0.1:8080/ <-- Jenkins has been configured to run on port 8000, Vagrant is port forwarding on 8080 to avoid collisions.
+http://127.0.0.1:8080/
+
+Note: Jenkins has been configured to run on port 8000, Vagrant is port forwarding on 8080 to avoid collisions.
 
 Party!
 
@@ -67,3 +63,4 @@ Uptime is critical, diminished or nonexistent services are typically not billabl
 For this project I turned to the usual suspects for help; [Google](https://www.google.com) and [Github](https://github.com). Often which landed me on [Stackoverflow](https://stackoverflow.com/), the [Vagrant](https://www.vagrantup.com/) site or the [Puppet](https://puppet.com/) site itself.
 
 Honestly automation means everything to me. It has been a major part of my life and career: Making things easier seems better. I personally have been involved and witnessed the struggles that come from the inability to meet the demands of change. Whether it was an unapplied security patch that is now the brunt of a worm-able virus ravaging a massive global infrastructure, with millions in revenue lost and employees left helpless. To the missed opportunities in small startups that simply could not afford the loss. Automation changes the game; ideas become relevant solutions, the small guys become competitors amongst giants and the realization of simplicity in a continually complex world wins. I am of the opinion that without automation deeply rooted not only in infrastructure design but business strategy as a whole one simply can not meet the demands of the era that so many of us have helped to usher in.
+
