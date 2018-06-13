@@ -13,11 +13,9 @@ Vagrant.configure("2") do |config|
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://vagrantcloud.com/search.
   config.vm.box = "puppetlabs/ubuntu-16.04-64-puppet"
-
-  config.vm.provision "puppet" do |puppet|
-    puppet.manifests_path = "manifests"
-    puppet.manifest_file = "default.pp"
-  end
+  config.vm.provision "file", source: "jenkins.list", destination: "jenkins.list"
+  config.vm.provision "file", source: "jenkins", destination: "jenkins"
+  config.vm.provision "puppet"
 
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs

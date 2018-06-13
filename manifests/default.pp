@@ -1,28 +1,29 @@
-
-
-exec { "add jenkins key":
-    command => "/usr/bin/wget -q -O - https://pkg.jenkins.io/debian/jenkins-ci.org.key | sudo apt-key add -"
+exec { "verify jenkins repo":
+    command => '/bin/cp /home/vagrant/jenkins.list /etc/apt/sources.list.d/jenkins.list'
 }
 
-exec { "add jenkins repo":
-    command => "/bin/echo deb https://pkg.jenkins.io/debian-stable binary/ | sudo tee /etc/apt/sources.list.d/jenkins.list"}
+exec { "verify jenkins repo key":
+    command => "/usr/bin/apt-key adv --fetch-key http://pkg.jenkins.io/debian/jenkins-ci.org.key"
+}
 
 exec { "apt-get update":
-    command => "/usr/bin/apt-get update"
+    command => "/usr/bin/apt-get update",
+    onlyif  => "/bin/sh -c '[ ! -f /var/cache/apt/pkgcache.bin ] || /usr/bin/find /etc/apt/* -cnewer /var/cache/apt/pkgcache.bin | /bin/grep . > /dev/null'",
 }
 
-exec { "install java 8":
-    command => "/usr/bin/apt-get -y install openjdk-8-jre-headless"
+exec { "jenkins defaults":
+    command => '/bin/cp /home/vagrant/jenkins /etc/default/jenkins',
+    before => Package["jenkins"]
 }
 
-exec { "apt-get install":
-    command => "/usr/bin/apt-get -y install jenkins"
+package { "java":
+    name => "openjdk-8-jre-headless",
+    ensure => present
 }
 
-exec { "configure jenkins http port":
-    command => "/bin/sed -i 's/HTTP_PORT=8080/HTTP_PORT=8000/g' /etc/default/jenkins"
-}
-
-exec { "restart jenkins for new default":
-    command => "/usr/sbin/service jenkins restart"
+package { "jenkins":
+    name => "jenkins",
+    ensure => present,
+    configfiles => keep,
+    require  => Exec['apt-get update', 'jenkins defaults']
 }
