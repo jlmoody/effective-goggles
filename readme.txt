@@ -34,7 +34,7 @@ Open a terminal and navigate to where you would like a new directory to live. I 
 
 Clone this repo:
 
-...[or learn about cloning repos](https://help.github.com/articles/cloning-a-repository/)
+... [or learn about cloning repos](https://help.github.com/articles/cloning-a-repository/)
 
 git clone https://github.com/jlmoody/effective-goggles.git
 
@@ -58,9 +58,12 @@ In Summary:
 
 The most difficult aspect of this build was addressing requirement (d). Typically I would not take into consideration the ideas of service interruption, system state and configuration task repetition on a Vagrant build because the tooling allows for the machine to easily be torn down and recreated though, I understand its importance here and applicability to production environments. Also I wanted to challenge myself and take this opportunity to learn more about using the Vagrant Puppet provisioner with this project because I typically use bootstrap.sh with my Vagrant builds, old habits die hard sometimes. Picking up on the control flow, dependencies and that Puppet is declarative by nature were additions to the difficulty. Overall though it was not terribly difficult and it is nice to revisit familiar tools with new challenges, digging deeper and learning new tricks is always fun.
 
+Requirement: (d) Subsequent applications of the solution should not cause failures or repeat redundant configuration tasks
+
+The d again, incredibly important but why?
+
 Uptime is critical, diminished or nonexistent services are typically not billable solutions and certainly not advantageous to meeting current customer expectations, building trust and definitely does not help businesses reach critical velocity. Repeatability is the cornerstone and using tools that help avoid configuration drift is monumental to avoiding confusion and failure. All of which contribute to being successful in the modern era of infrastructure management and certainly in the future as technology surpasses unimaginable rates of change.
 
 For this project I turned to the usual suspects for help; [Google](https://www.google.com) and [Github](https://github.com). Often which landed me on [Stackoverflow](https://stackoverflow.com/), the [Vagrant](https://www.vagrantup.com/) site or the [Puppet](https://puppet.com/) site itself.
 
 Honestly automation means everything to me. It has been a major part of my life and career: Making things easier seems better. I personally have been involved and witnessed the struggles that come from the inability to meet the demands of change. Whether it was an unapplied security patch that is now the brunt of a worm-able virus ravaging a massive global infrastructure, with millions in revenue lost and employees left helpless. To the missed opportunities in small startups that simply could not afford the loss. Automation changes the game; ideas become relevant solutions, the small guys become competitors amongst giants and the realization of simplicity in a continually complex world wins. I am of the opinion that without automation deeply rooted not only in infrastructure design but business strategy as a whole one simply can not meet the demands of the era that so many of us have helped to usher in.
-
